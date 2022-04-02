@@ -10,6 +10,8 @@ services:
     build:
       context: ./account-service
       dockerfile: Dockerfile
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery-service:8761/eureka
 
   customer-service:
     image: luongtx/customer-service
@@ -21,6 +23,8 @@ services:
     build:
       context: ./customer-service
       dockerfile: Dockerfile
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery-service:8761/eureka
 
   discovery-service:
     image: luongtx/discovery-service
